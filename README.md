@@ -14,7 +14,6 @@
 **Uma ferramenta interativa e moderna para gerenciar resoluções de tela no Linux**
 
 [![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Linux-lightgrey.svg)](https://www.linux.org/)
 
 </div>
