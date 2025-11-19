@@ -66,10 +66,8 @@ def obter_resolucoes_por_monitor(monitor):
 def criar_resolucao_customizada(largura, altura, hz):
     console.print(f"\n[yellow]Criando resolução customizada {largura}x{altura} @ {hz}Hz...[/yellow]")
     
-    # Gera o modeline com cvt
     cvt_output = os.popen(f'cvt {largura} {altura} {hz}').read()
     
-    # Extrai a linha do Modeline
     modeline_match = re.search(r'Modeline\s+".*?"\s+(.*)', cvt_output)
     if not modeline_match:
         console.print("[red]Erro ao gerar modeline![/red]")
@@ -88,15 +86,12 @@ def aplicar_resolucao_customizada(monitor, largura, altura, hz):
     if not mode_name:
         return False
     
-    # Cria o novo modo
     console.print(f"\n[cyan]Adicionando novo modo...[/cyan]")
     os.system(f'xrandr --newmode "{mode_name}" {modeline}')
     
-    # Adiciona o modo ao monitor
     console.print(f"[cyan]Vinculando modo ao monitor {monitor}...[/cyan]")
     os.system(f'xrandr --addmode {monitor} "{mode_name}"')
     
-    # Aplica a resolução
     console.print(f"[cyan]Aplicando resolução...[/cyan]")
     os.system(f'xrandr --output {monitor} --mode "{mode_name}"')
     
@@ -113,14 +108,12 @@ def main():
     console.print(f"[cyan]{ASCII_ART}[/cyan]")
     console.print(Panel.fit("[bold green]Bem-vindo ao Customizador de Resolução![/bold green]", border_style="green"))
     
-    # Detecta monitores
     monitores = obter_monitores()
     
     if not monitores:
         console.print("[red]Nenhum monitor detectado![/red]")
         return
     
-    # Seleciona o monitor
     if len(monitores) > 1:
         monitor = inquirer.select(
             message="Selecione o monitor:",
@@ -130,7 +123,6 @@ def main():
         monitor = monitores[0]
         console.print(f"\n[green]Monitor detectado:[/green] {monitor}")
     
-    # Mostra resoluções disponíveis
     resolucoes = obter_resolucoes_por_monitor(monitor)
     
     if resolucoes:
@@ -145,7 +137,6 @@ def main():
         
         console.print(table)
     
-    # Menu principal
     opcao = inquirer.select(
         message="\nO que deseja fazer?",
         choices=[
@@ -169,7 +160,6 @@ def main():
             choices=[r['display'] for r in resolucoes]
         ).execute()
         
-        # Encontra a resolução selecionada
         for r in resolucoes:
             if r['display'] == escolha:
                 aplicar_resolucao_existente(monitor, r['resolucao'], r['hz'])
