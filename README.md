@@ -158,22 +158,10 @@ Ao iniciar, você verá:
 
 ## 📸 Screenshots
 
-```
-📺 Resoluções Disponíveis para HDMI-1
-┏━━━━━━━━━━━┳━━━━━━━━┳━━━━━━━━━┓
-┃ Resolução ┃ Hz     ┃ Status  ┃
-┡━━━━━━━━━━━╇━━━━━━━━╇━━━━━━━━━┩
-│ 1920x1080 │ 60 Hz  │ ★ ATUAL │
-│ 1920x1080 │ 144 Hz │         │
-│ 1680x1050 │ 60 Hz  │         │
-│ 1280x1024 │ 75 Hz  │         │
-└───────────┴────────┴─────────┘
-
-? O que deseja fazer?
-❯ Usar resolução existente
-  Criar resolução customizada
-  Sair
-```
+<div align="center">
+  <img src="seliganafoto.png" alt="Preview" width="400">
+  <p><em>Interface principal da calculadora</em></p>
+</div>
 
 ---
 
